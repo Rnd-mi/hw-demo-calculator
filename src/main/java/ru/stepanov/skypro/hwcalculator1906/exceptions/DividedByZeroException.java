@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST,
                 reason = "Dividing by zero is prohibited")
-public class DividedByZeroException extends ArithmeticException {
+public class DividedByZeroException extends IllegalArgumentException {
     public DividedByZeroException() {
     }
 }

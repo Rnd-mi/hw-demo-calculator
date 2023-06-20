@@ -20,18 +20,46 @@ public class CalculatorServiceImpl implements CalculatorService {
         }
         return num + "";
     }
+
+    private String generateOperation(Integer num1, Integer num2, String operation) {
+        String sign = "";
+
+        switch (operation) {
+            case "plus":
+                sign = " + ";
+                break;
+            case "minus":
+                sign = " - ";
+                break;
+            case "multiply":
+                sign = " * ";
+                break;
+            case "divide":
+                sign = " / ";
+                break;
+        }
+        return numberHandler(num1) + sign + numberHandler(num2) + " = ";
+    }
+
     @Override
     public String plus(Integer num1, Integer num2) {
         checkIfNull(num1, num2);
         int result = num1 + num2;
-        return numberHandler(num1) + " + " + numberHandler(num2) + " = " + result;
+        return generateOperation(num1, num2, "plus") + result;
     }
 
     @Override
     public String minus(Integer num1, Integer num2) {
         checkIfNull(num1, num2);
         int result = num1 - num2;
-        return numberHandler(num1) + " - " + numberHandler(num2) + " = " + result;
+        return generateOperation(num1, num2, "minus") + result;
+    }
+
+    @Override
+    public String multiply(Integer num1, Integer num2) {
+        checkIfNull(num1, num2);
+        int result = num1 * num2;
+        return generateOperation(num1, num2, "multiply") + result;
     }
 
     @Override
@@ -42,13 +70,6 @@ public class CalculatorServiceImpl implements CalculatorService {
             throw new DividedByZeroException();
         }
         int result = num1 / num2;
-        return numberHandler(num1) + " / " + numberHandler(num2) + " = " + result;
-    }
-
-    @Override
-    public String multiply(Integer num1, Integer num2) {
-        checkIfNull(num1, num2);
-        int result = num1 * num2;
-        return numberHandler(num1) + " * " + numberHandler(num2) + " = " + result;
+        return generateOperation(num1, num2, "divide") + result;
     }
 }
