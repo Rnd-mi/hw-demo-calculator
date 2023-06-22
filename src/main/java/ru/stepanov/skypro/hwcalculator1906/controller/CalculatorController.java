@@ -20,22 +20,22 @@ public class CalculatorController {
     }
 
     @GetMapping("/plus")
-    public String plus(Integer num1, Integer num2) {
+    public String plus(Double num1, Double num2) {
         return calculatorService.plus(num1, num2);
     }
 
     @GetMapping("/minus")
-    public String minus(Integer num1, Integer num2) {
+    public String minus(Double num1, Double num2) {
         return calculatorService.minus(num1, num2);
     }
 
     @GetMapping("/divide")
-    public String divide(Integer num1, Integer num2) {
+    public String divide(Double num1, Double num2) {
         return calculatorService.divide(num1, num2);
     }
 
     @GetMapping("/multiply")
-    public String multiply(Integer num1, Integer num2) {
+    public String multiply(Double num1, Double num2) {
         return calculatorService.multiply(num1, num2);
     }
 }

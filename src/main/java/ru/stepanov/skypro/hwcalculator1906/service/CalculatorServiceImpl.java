@@ -7,13 +7,13 @@ import ru.stepanov.skypro.hwcalculator1906.exceptions.NoInputException;
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
 
-    private void checkIfNull(Integer num1, Integer num2) {
+    void checkIfNull(Double num1, Double num2) {
         if (num1 == null || num2 == null) {
             throw new NoInputException();
         }
     }
 
-    private String numberHandler(Integer num) {
+    private String numberHandler(Double num) {
 
         if (num < 0) {
             return "(" + num + ")";
@@ -21,7 +21,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         return num + "";
     }
 
-    private String generateOperation(Integer num1, Integer num2, String operation) {
+    private String generateOperation(Double num1, Double num2, String operation) {
         String sign = "";
 
         switch (operation) {
@@ -42,34 +42,34 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public String plus(Integer num1, Integer num2) {
+    public String plus(Double num1, Double num2) {
         checkIfNull(num1, num2);
-        int result = num1 + num2;
+        double result = num1 + num2;
         return generateOperation(num1, num2, "plus") + result;
     }
 
     @Override
-    public String minus(Integer num1, Integer num2) {
+    public String minus(Double num1, Double num2) {
         checkIfNull(num1, num2);
-        int result = num1 - num2;
+        double result = num1 - num2;
         return generateOperation(num1, num2, "minus") + result;
     }
 
     @Override
-    public String multiply(Integer num1, Integer num2) {
+    public String multiply(Double num1, Double num2) {
         checkIfNull(num1, num2);
-        int result = num1 * num2;
+        double result = num1 * num2;
         return generateOperation(num1, num2, "multiply") + result;
     }
 
     @Override
-    public String divide(Integer num1, Integer num2) {
+    public String divide(Double num1, Double num2) {
         checkIfNull(num1, num2);
 
         if (num2 == 0) {
             throw new DividedByZeroException();
         }
-        int result = num1 / num2;
-        return generateOperation(num1, num2, "divide") + result;
+        double result = num1 / num2;
+        return  generateOperation(num1, num2, "divide") + result;
     }
 }
