@@ -13,6 +13,11 @@ public class CalculatorServiceImpl implements CalculatorService {
         }
     }
 
+    /**
+     * Wraps the negative number in brackets and leave the positive untouched.
+     * @param num number
+     * @return processed number
+     */
     private String numberHandler(Double num) {
 
         if (num < 0) {

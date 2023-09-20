@@ -13,6 +13,11 @@ public class CalculatorServiceImplTest {
 
     private final CalculatorServiceImpl out = new CalculatorServiceImpl();
 
+    /**
+     * Extracts the result out of String to be able to test only the double result.
+     * @param string message from the endpoint
+     * @return extracted double result
+     */
     static double extractResult(String string) {
         double result = -1;
 
