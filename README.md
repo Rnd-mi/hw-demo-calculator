@@ -1,7 +1,7 @@
 # web-calculator
 Web calculator using Spring Boot
 
-To test app you can simply download 'web-calculator.jar' and run it through command prompt.
+To test the app you can simply download 'web-calculator.jar' and run it through command prompt.
 
 Endpoints ('localhost:8080' is ommited):
 1. /calculator - greeting;
